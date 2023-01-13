@@ -15,6 +15,16 @@ public class Flights {
     private String latitude;
     private String longitude;
     private String website;
+    private String snapShot;
+
+    // j'ai ajouté ces deux méthodes getSnapShot() et setSnapShot()
+    public String getSnapShot() {
+        return snapShot;
+    }
+
+    public void setSnapShot(String snapShot) {
+        this.snapShot = snapShot;
+    }
 
     public String getId() {
         return id;

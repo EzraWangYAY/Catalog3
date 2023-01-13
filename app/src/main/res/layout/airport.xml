@@ -26,7 +26,7 @@
             android:text="FlightPhoneNumber" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/FlightRealLocationID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FlightRealLocationID" />
