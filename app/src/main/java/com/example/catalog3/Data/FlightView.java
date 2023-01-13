@@ -34,7 +34,7 @@ public FlightView(Context context, List<Flight> flight){
     View views = LayoutInflater.from(parent.getContext()).inflate(R.layout.airport,parent, false);
 
     return new ViewHolder(views, context);
-
+//gdgdgd
 
 
 
