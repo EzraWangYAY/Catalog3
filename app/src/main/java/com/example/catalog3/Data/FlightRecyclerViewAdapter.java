@@ -1,6 +1,7 @@
 package com.example.catalog3.Data;
 import java.util.List;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -16,11 +17,11 @@ import com.example.catalog3.R;
 import com.example.catalog3.Model.Flights;
 import com.squareup.picasso.Picasso;
 
-public class FlightView extends RecyclerView.Adapter<FlightView.ViewHolder> {
+public class FlightRecyclerViewAdapter extends RecyclerView.Adapter<FlightRecyclerViewAdapter.ViewHolder> {
     private Context context;
     private List<Flights> flightList;
 
-public FlightView(Context context, List<Flights> flight)
+public FlightRecyclerViewAdapter(Context context, List<Flights> flight)
 {
     this.context = context;
     flightList = flight;
@@ -29,7 +30,7 @@ public FlightView(Context context, List<Flights> flight)
 
     @NonNull
     @Override
-    public FlightView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public FlightRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
     View views = LayoutInflater.from(parent.getContext()).inflate(R.layout.airport,parent, false);
 
     return new ViewHolder(views, context);
@@ -39,12 +40,13 @@ public FlightView(Context context, List<Flights> flight)
 
     }
     @Override
-    public void onBindViewHolder(@NonNull FlightView.ViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull FlightRecyclerViewAdapter.ViewHolder holder, int position){
     Flights flight = flightList.get(position);
+    //image of plane
     String airSnapShot = flight.getSnapShot();  // Tu n'avais pas de methode flight.getSnapShot() dans le fichier Flights je l'ai ajouté mais je ne sais pas c'est pour quoi faire!!!!!!
     holder.name.setText(flight.getName());
-    holder.location.setText(flight.getLocation());
-    holder.phone.setText(flight.getPhone());
+    holder.location.setText("Location: " + flight.getLocation());
+    holder.phone.setText("Phone: " + flight.getPhone());
     Picasso.get()
             .load(airSnapShot)
             .fit()
@@ -72,6 +74,17 @@ public FlightView(Context context, List<Flights> flight)
             location=itemView.findViewById(R.id.FlightLocationID);
             phone=itemView.findViewById(R.id.FlightNumberID); // peut être renommer le nom du champ pour qu'on puisse savoir que c'est un numéro de télephone !! voir dans le fichier airport.xml
 
+                imageView.setOnClickListener(new View.onClickListener()){
+                    @Override
+                public void onClick(View v){
+                        Flights flights = flightList.get(getAdapterPosition());
+                        Intent intent = new Intent(context, DetailsACtivity.class);
+                        intent.putExtra("flight", (CharSequence) flights);
+                        context.startActivity(intent);
+
+
+                }
+            }
 
 
         }

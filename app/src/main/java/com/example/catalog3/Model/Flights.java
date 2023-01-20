@@ -1,6 +1,8 @@
 package com.example.catalog3.Model;
 
-public class Flights {
+import java.io.Serializable;
+
+public class Flights implements Serializable {
     private String id;
     private String iata;
     private String icao;
