@@ -63,10 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
             public void onResponse(JSONObject response) {
                 try {
+
                     JSONArray flightArray = response.getJSONArray("Search");
-                    for(int i=0; i<flightArray.length(); i++){
-                        flightObj = flightArray.getJSONObject(i);
-                        Flight flight = new Flight();
+
+                    for(int i=0; i<flightArray.length(); i++)
+                    {
+                        JSONObject flightObj = flightArray.getJSONObject(i);
+                        Flights flight = new Flights();
                         flight.setName(flightObj.getString("Name"));
                         flight.setPhone(flightObj.getString("Phone"));
                         flight.setLocation(flightObj.getString("Location"));

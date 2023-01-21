@@ -10,10 +10,10 @@ import com.example.catalog3.R;
 public class DetailsActivity extends AppCompatActivity {
 
 
-    public class DetailsActivity extends AppCompatActivity{
+
         private Flights flights;
-        private textView
-    }
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
