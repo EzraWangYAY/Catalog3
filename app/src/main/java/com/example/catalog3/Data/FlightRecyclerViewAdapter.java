@@ -69,7 +69,7 @@ public FlightRecyclerViewAdapter(Context context, List<Flights> flight)
             super(itemView);
             context=context;
             name=itemView.findViewById(R.id.FlightNameID);
-            airSnap=itemView.findViewById(R.id.FlightLocationID);
+            airSnap=itemView.findViewById(R.id.FlightImageID);
             // peut être que tu devrais créer le champ airSnap dans le fichier airport.xm !!!! car ici tu as deux champs qui font la même chose
             location=itemView.findViewById(R.id.FlightLocationID);
             phone=itemView.findViewById(R.id.FlightNumberID); // peut être renommer le nom du champ pour qu'on puisse savoir que c'est un numéro de télephone !! voir dans le fichier airport.xml
